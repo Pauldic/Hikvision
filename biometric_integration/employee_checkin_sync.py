@@ -35,25 +35,25 @@ def get_geolocation():
 
 def sync_punches_to_employee_checkin():
     """
-    Convert unsynced biometric punches into Employee Checkin records.
+        Convert unsynced biometric punches into Employee Checkin records.
 
-    Rules:
-    - Group punches by (employee_no, event_date)
-    - Map employee_no -> Employee via Employee.attendance_device_id
-    - For each group (one employee, one date):
-        * First punch of the day  -> Employee Checkin (IN)
-        * Last punch of the day   -> Employee Checkin (OUT)
-        * Middle punches stay only in the punch table, but are marked as synced
-    - Avoid duplicate Employee Checkin rows (same employee + time)
-    - Mark punches as synced via Biometric Attendance Punch Table.synced_to_employee_checkin
-    - Copy device_id (device IP) from punches/logs into Employee Checkin.device_id
-    - When HRMS geolocation is enabled, fill latitude/longitude fields so validation passes.
+        Rules:
+        - Group punches by (employee_no, event_date)
+        - Map employee_no -> Employee via Employee.attendance_device_id
+        - For each group (one employee, one date):
+            * First punch of the day  -> Employee Checkin (IN)
+            * Last punch of the day   -> Employee Checkin (OUT)
+            * Middle punches stay only in the punch table, but are marked as synced
+        - Avoid duplicate Employee Checkin rows (same employee + time)
+        - Mark punches as synced via Biometric Attendance Punch Table.synced_to_employee_checkin
+        - Copy device_id (device IP) from punches/logs into Employee Checkin.device_id
+        - When HRMS geolocation is enabled, fill latitude/longitude fields so validation passes.
 
-    SIMPLE RULE for missing/inactive employees:
-    - If no Employee is found for attendance_device_id, or Employee is NOT Active:
-        -> Do NOT create Employee Checkin
-        -> Do NOT mark punches as synced
-        -> Just skip silently (punches remain in biometric tables only)
+        SIMPLE RULE for missing/inactive employees:
+        - If no Employee is found for attendance_device_id, or Employee is NOT Active:
+            -> Do NOT create Employee Checkin
+            -> Do NOT mark punches as synced
+            -> Just skip silently (punches remain in biometric tables only)
     """
 
     # Check optional columns exist (DB-level)

@@ -38,6 +38,8 @@ def _get_device_configs(settings):
         pwd = settings.get_password("password")
         devices.append(("Main Device", settings.ip, settings.username, pwd))
 
+    print(devices)
+    
     return devices
 
 
