@@ -6,6 +6,41 @@
 
 <h1 align="center">Biometric Integration</h1>
 
+The Biometric Integration (Hikvision) app seamlessly connects your Hikvision Face Terminal with the Frappe framework, enabling smooth integration for biometric attendance management. This app is designed to streamline the process of recording and syncing employee attendance data, providing real-time access control and status updates directly within your Frappe-based ERP system.
+
+## Features:
+
+- Biometric Data Sync: Automatically syncs attendance logs from the Hikvision face terminal to Frappe.
+
+- Digest Authentication Support: Utilizes secure Digest Authentication for API communication, ensuring safe data transfer between your face terminal and Frappe.
+
+- Event Time Logging: Capture and store accurate timestamps for each attendance event.
+
+- Error Handling and Notifications: Sync result field captures any failures or issues, allowing administrators to monitor the success of the sync operation.
+
+- Daily Attendance Report: Generate daily attendance reports, providing a quick overview of employee attendance, including entry and exit times.
+
+- Monthly Attendance Report: Automatically generate monthly attendance summaries, including total hours worked, attendance percentage, and any missed days.
+
+- Manual Attendance Entry: Allows administrators to manually log attendance for employees in case of biometric data sync failures or when employees are unable to use the biometric system.
+
+## Key Points:
+
+- Simplified Attendance Management: Eliminates manual logging and provides a more reliable, automated solution for employee attendance tracking.
+
+- Enhanced Security: Uses secure communication protocols to protect sensitive data.
+
+- Customizable: Adapt the app to meet the specific needs of your business or organization.
+
+- Easy Setup: With minimal configuration required, quickly connect the Hikvision face terminal to Frappe for seamless operation.
+
+## You Need
+
+- IP Address of the Device
+  
+- User Credential of the Device
+
+
 <p align="center">
   <b>Seamlessly integrate Hikvision data with ERPNext using Python</b>
 </p>
